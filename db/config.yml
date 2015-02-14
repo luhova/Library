@@ -1,0 +1,13 @@
+ development:
+      adapter: postgresql
+      database: my_db
+      encoding: utf8
+      host: localhost
+      port: 5432
+      username: noel
+      password: s3cret
+    test:
+      adapter: sqlite3
+      database: db/library.sqlite3
+      pool: 5
+      timeout: 5000
