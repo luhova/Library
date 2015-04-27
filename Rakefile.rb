@@ -3,6 +3,7 @@ require 'active_record_migrations'
 ActiveRecordMigrations.configure do |c|
   c.database_configuration = {
     'development' => {'adapter' => 'sqlite3', 'database' => 'db/library.sqlite3'},
+    'test' => {'adapter' => 'sqlite3', 'database' => 'spec/db/library.sqlite3'}
   }
   # Other settings:
   c.schema_format = :sql # default is :ruby

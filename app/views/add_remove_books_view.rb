@@ -7,9 +7,9 @@ class AddRemoveBooksView
       AddRemoveBooksController.book_title = gets.chomp
     end
 
-    def ask_for_discription
-      puts "Add a little discription of the book: "
-      AddRemoveBooksController.book_discription = gets.chomp
+    def ask_for_description
+      puts "Add a little description of the book: "
+      AddRemoveBooksController.book_description = gets.chomp
     end
 
     def ask_for_rating
