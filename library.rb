@@ -28,6 +28,8 @@ def ask_user
     choice = gets.chomp
   end
 
+  #UsersController.init_current_user
+
   case choice
     when "1" then BooksController.all_books
     when "2" then BooksController.find
@@ -45,3 +47,7 @@ def ask_user
 end
 
 ask_user
+
+User.create(name: 'Ivan Ivanov',
+            password: '12345678',
+            access: 'admin') unless User.find_by name: 'Ivan Ivanov'

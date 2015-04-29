@@ -6,10 +6,12 @@ require_relative '../views/users_view'
 class UsersController
   include PasswordHash
 
-  @@current_user = User.find_by name: 'Ivan Ivanov'
-
   class << self
     attr_accessor  :user_name, :user_password, :user_access
+
+    def init_current_user
+      @@current_user = User.find_by name: 'Ivan Ivanov'
+    end
 
     def log_in
       if @@current_user

@@ -20,7 +20,7 @@ class BooksView
     end
 
     def display_books(books)
-      if books.count == 0
+      if books.length == 0
         print "There aren't any books in the library yet"
       else
         books.each do |book|

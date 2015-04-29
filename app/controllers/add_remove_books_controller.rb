@@ -4,17 +4,14 @@ require_relative '../controllers/users_controller'
 
 class AddRemoveBooksController
   class << self
-  attr_accessor :book_title, :book_description, :book_rating, :book_year, :book_isbn,
-                :book_publisher, :authors_name, :authors_biography, :genres_name,
+  attr_accessor :book_title, :book_description,
+                :book_rating, :book_year, :book_isbn,
+                :book_publisher, :authors_name,
+                :authors_biography, :genres_name,
                 :tags_name, :count
 
     def add_book
-      AddRemoveBooksView.ask_for_title
-      AddRemoveBooksView.ask_for_description
-      AddRemoveBooksView.ask_for_rating
-      AddRemoveBooksView.ask_for_year
-      AddRemoveBooksView.ask_for_isbn
-      AddRemoveBooksView.ask_for_publisher
+      AddRemoveBooksView.ask_for_information
       new_book = Book.create(
         :title => @book_title,
         :description => @book_description,

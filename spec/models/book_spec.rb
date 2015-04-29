@@ -37,6 +37,13 @@ describe Book do
       expect(Book.create(isbn:nil).valid?).to be false
     end
 
+    it "requires an isbn to be unique" do
+      expect { FactoryGirl.create(:book, authors: [author],
+                                         tags: [tag],
+                                         genres: [genre],
+                                         isbn:123456)}.to raise_error
+    end
+
     it "requires the isbn length to be in range of 6-20 symbols" do
      expect(Book.create(title: "Sample book", isbn: 123567)).to be_truthy
      expect(Book.create(title: "Sample bok", isbn: 12).valid?).to be false

@@ -31,4 +31,10 @@ FactoryGirl.define do
   factory :tag do
     name        Faker::Lorem.word
   end
+
+  factory :user do
+    name       Faker::Name.title
+    password   Faker::Lorem.word
+    access     admin
+  end
 end

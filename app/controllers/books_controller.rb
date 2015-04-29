@@ -15,7 +15,7 @@ class BooksController
 
     def pick_for_sort
       BooksView.ask_for_option
-      Book.sort(option)
+      Book.sort_books(option)
     end
 
     def all_books

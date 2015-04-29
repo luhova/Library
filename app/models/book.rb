@@ -1,4 +1,4 @@
-require_relative '../establish_connection'
+require_relative '../../establish_connection'
 
 class Book < ActiveRecord::Base
   has_and_belongs_to_many :authors
