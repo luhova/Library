@@ -1,7 +1,7 @@
-require "../spec_helper"
-require "../factories.rb"
-require "../../app/models/book"
-require "../../app/views/books_view"
+require_relative "../spec_helper"
+require_relative "../factories.rb"
+require_relative "../../app/models/book"
+require_relative "../../app/views/books_view"
 
 describe BooksController do
 

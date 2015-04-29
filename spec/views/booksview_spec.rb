@@ -1,6 +1,6 @@
-require "../../app/views/books_view"
-require "../spec_helper"
-require "../factories.rb"
+require_relative "../../app/views/books_view"
+require_relative "../spec_helper"
+require_relative "../factories.rb"
 
 describe BooksView do
   author1   = FactoryGirl.create(:author, name: "Sample Author1")
@@ -43,7 +43,7 @@ describe BooksView do
     end
     context 'with no books in the library' do
       it "prints the right message when there aren't any books yet" do
-        expect{ BooksView.display_books([]) }.to output("There aren't any books in the library yet").to_stdout
+        expect{ BooksView.display_books([]) }.to output("There aren't any books in the library yet\n").to_stdout
       end
     end
   end

@@ -1,5 +1,5 @@
-require "../../app/models/user"
-require "../spec_helper"
+require_relative "../../app/models/user"
+require_relative "../spec_helper"
 
 describe User do
   it "requires a name to be present" do
