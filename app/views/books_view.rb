@@ -24,7 +24,7 @@ class BooksView
         puts "There aren't any books in the library yet"
       else
         books.each do |book|
-          print "Title: #{book.title} - "
+           print "Title: #{book.title} - "
           print "Name of the author/s: "
           book.authors.each do |author|
             print "#{author.name} "
