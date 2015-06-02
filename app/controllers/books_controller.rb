@@ -9,13 +9,8 @@ class BooksController
 
     def find
       BooksView.ask_for_isbn
-<<<<<<< Updated upstream
-      book = Book.find_by isbn: @isbn
-      Book.display_book(book)
-=======
       book = Book.find_by_isbn @isbn
       BooksView.display_book(book)
->>>>>>> Stashed changes
     end
 
     def sort
@@ -28,9 +23,7 @@ class BooksController
     end
 
     def all_books
-<<<<<<< Updated upstream
       Book.all_books
-=======
       books = Book.all
       BooksView.display_books
     end

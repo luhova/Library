@@ -6,18 +6,12 @@ require './app/controllers/users_controller'
 require './app/controllers/books_controller'
 require './app/controllers/add_remove_books_controller'
 
-<<<<<<< Updated upstream
 puts "Welcome to the library. What do you want to do?"
 
-=======
 User.create!(name: 'Ivan Ivanov',
              password: PasswordHash.createHash('12345678'),
              access: 'admin') unless User.find_by name: 'Ivan Ivanov'
-
 UsersController.init_current_user
-
-puts "Welcome to the library. What do you want to do?"
->>>>>>> Stashed changes
 def ask_user
   choice = ""
   while(choice.empty?) do
@@ -51,6 +45,7 @@ def ask_user
     when "9" then UsersController.remove_user
     else exit
   end
+
 
   ask_user
 end
