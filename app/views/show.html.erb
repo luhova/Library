@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+</style>
+</head>
+<body>
+<table>
+	<tr>
+		<td><b>Title:</b></td>
+		<td><%= @book.title %></td>
+	</tr>
+	<tr>
+		<td><b>Authors:</td></b>
+		<td><%= @book.authors.collect{ |author| author.name }.join(", ") %></td>
+	</tr>
+	<tr>
+		<td><b>Description:</td></b>
+		<td><%= @book.description %></td>
+	</tr>
+	<tr>
+		<td><b>Year of publishing:</td></b>
+		<td><%= @book.year %></td>
+	</tr>
+	<tr>
+		<td><b>Rating:</td></b>
+		<td><%= @book.year %></td>
+	</tr>
+	<tr>
+		<td><b>Genres:</td></b>
+		<td><%= @book.genres.collect{ |genre| genre.name }.join(", ") %></td>
+	</tr>
+	<tr>
+		<td><b>ISBN:</td></b>
+		<td><%= @book.isbn %></td>
+	</tr>
+</table>
+</body>
+</html>
