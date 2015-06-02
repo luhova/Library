@@ -9,6 +9,7 @@ class AddRemoveBooksController
                 :tags_name, :count
 
     def add_book
+<<<<<<< Updated upstream
       AddRemoveBooksView.ask_for_title
       AddRemoveBooksView.ask_for_discription
       AddRemoveBooksView.ask_for_rating
@@ -29,29 +30,54 @@ class AddRemoveBooksController
         new_book.authors.create(
           :name => @authors_name,
           :biography => @authors_biography
+=======
+      if UsersController.current_user.access != 'admin'
+        puts 'You do not have permission to perform this action'
+      else
+        AddRemoveBooksView.ask_for_information
+        new_book = Book.create(
+          :title => @book_title,
+          :description => @book_description,
+          :rating => @book_rating,
+          :year => @book_year,
+          :isbn => @book_isbn
+>>>>>>> Stashed changes
           )
-      end
-      AddRemoveBooksView.ask_for_genres_count
-      @count.to_i.times do
-        AddRemoveBooksView.ask_for_genres
-        new_book.genres.create(:name => @genres_name)
-      end
-      AddRemoveBooksView.ask_for_tags_count
-      @count.to_i.times do
-        AddRemoveBooksView.ask_for_tags
-        if @tags_name.include? ','
-          puts "Tags can't include ','. Add the tag again. "
+        new_book.create_publisher(:name => @book_publisher)
+        AddRemoveBooksView.ask_for_authors_count
+        @count.to_i.times do
+          AddRemoveBooksView.ask_for_authors
+          new_book.authors.create(
+            :name => @authors_name,
+            :biography => @authors_biography
+            )
+        end
+        AddRemoveBooksView.ask_for_genres_count
+        @count.to_i.times do
+          AddRemoveBooksView.ask_for_genres
+          new_book.genres.create(:name => @genres_name)
+        end
+        AddRemoveBooksView.ask_for_tags_count
+        @count.to_i.times do
           AddRemoveBooksView.ask_for_tags
-        else
-          new_book.tags.create(:name => @tags_name)
+          if @tags_name.include? ','
+            puts "Tags can't include ','. Add the tag again. "
+            AddRemoveBooksView.ask_for_tags
+          else
+            new_book.tags.create(:name => @tags_name)
+          end
         end
       end
     end
 
     def remove_book
-      AddRemoveBooksView.ask_for_title
-      book_to_remove = Book.find_by title: @book_title
-      book_to_remove.destroy
+      if UsersController.current_user.access != 'admin'
+        puts 'You do not have permission to perform this action'
+      else
+        AddRemoveBooksView.ask_for_title
+        book_to_remove = Book.find_by title: @book_title
+        book_to_remove.destroy
+      end
     end
   end
 end

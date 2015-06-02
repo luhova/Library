@@ -33,7 +33,16 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.0)
     builder (3.2.2)
+<<<<<<< Updated upstream
     erubis (2.7.0)
+=======
+    colorize (0.7.7)
+    database_cleaner (1.4.1)
+    erubis (2.7.0)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    highline (1.7.2)
+>>>>>>> Stashed changes
     i18n (0.7.0)
     json (1.8.1)
     loofah (2.0.1)
@@ -70,4 +79,13 @@ PLATFORMS
 
 DEPENDENCIES
   active_record_migrations
+<<<<<<< Updated upstream
+=======
+  colorize
+  database_cleaner
+  erubis
+  factory_girl
+  highline
+  rmvc
+>>>>>>> Stashed changes
   sqlite3
