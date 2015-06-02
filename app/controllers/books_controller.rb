@@ -10,20 +10,17 @@ class BooksController
     def find
       BooksView.ask_for_isbn
       book = Book.find_by isbn: @isbn
-      Book.display_book(book)
+      BooksView.display_book(book)
     end
 
-    def sort
+    def pick_for_sort
       BooksView.ask_for_option
-      if(option == "1")
-        Book.order(year: :desc)
-      else
-        Book.order(rating: :desc)
-      end
+      Book.sort_books(option)
     end
 
     def all_books
-      Book.all_books
+      books = Book.all
+      BooksView.display_books(books)
     end
   end
 end

@@ -1,4 +1,4 @@
-require_relative '../establish_connection'
+require_relative '../../establish_connection'
 
 class Book < ActiveRecord::Base
   has_and_belongs_to_many :authors
@@ -7,39 +7,15 @@ class Book < ActiveRecord::Base
   belongs_to :publisher
 
   validates :title, :isbn, presence: true
-  validates :isbn, length: { in: 6..20 }
+  validates :isbn, length: { in: 6..20 }, uniqueness: true
 
   class << self
-    def all_books
-      Book.find_each do |book|
-        print "Title: #{book.title} "
-        print "Name of the author/s: "
-        book.authors.each do |author|
-          print "#{author.name} "
-        end
-        print "Name of the genres: "
-        book.genres.each do |genre|
-          print  "#{genre.name} "
-        end
-        print "ISBN: #{book.isbn}"
-        puts " "
+    def sort_books(option)
+      if(option == "1")
+        Book.order(year: :desc)
+      else
+        Book.order(rating: :desc)
       end
-    end
-
-    def display_book(book)
-      print "Title: #{book.title} "
-      print "Name of the author/s: "
-      book.authors.each do |author|
-        print "#{author.name} "
-      end
-      print "Discription: #{book.discription}"
-      print "Year of publishing: #{book.year}"
-      print "Rating: #{book.rating}"
-      print "Name of the genress: "
-      book.genres.each do |genre|
-        print  "#{genre.name} "
-      end
-      print "ISBN: #{book.isbn}"
     end
   end
 end

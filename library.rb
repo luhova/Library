@@ -8,6 +8,10 @@ require './app/controllers/add_remove_books_controller'
 
 puts "Welcome to the library. What do you want to do?"
 
+User.create!(name: 'Ivan Ivanov',
+             password: '12345678',
+             access: 'admin') unless User.find_by name: 'Ivan Ivanov'
+UsersController.init_current_user
 def ask_user
   choice = ""
   while(choice.empty?) do
@@ -40,6 +44,7 @@ def ask_user
     when "9" then UsersController.remove_user
     else exit
   end
+
 
   ask_user
 end
