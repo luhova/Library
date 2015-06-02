@@ -59,7 +59,6 @@ class BooksController
     def not_found
       erb = ERB.new(File.open("#{__dir__}/../views/404.html.erb").read, 0, '>')
       erb.result binding
->>>>>>> Stashed changes
     end
   end
 end
