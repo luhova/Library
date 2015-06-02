@@ -35,6 +35,6 @@ FactoryGirl.define do
   factory :user do
     name       Faker::Name.title
     password   Faker::Lorem.word
-    access     admin
+    access     "admin"
   end
 end
