@@ -23,9 +23,8 @@ class BooksController
     end
 
     def all_books
-      Book.all_books
       books = Book.all
-      BooksView.display_books
+      BooksView.display_books(books)
     end
 
     def all_books_web(argument)

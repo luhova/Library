@@ -12,6 +12,7 @@ User.create!(name: 'Ivan Ivanov',
              password: PasswordHash.createHash('12345678'),
              access: 'admin') unless User.find_by name: 'Ivan Ivanov'
 UsersController.init_current_user
+
 def ask_user
   choice = ""
   while(choice.empty?) do
