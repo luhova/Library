@@ -9,6 +9,9 @@ table, th, td {
 th, td {
     padding: 5px;
 }
+th {
+    height: 50px;
+}
 </style>
 </head>
 
@@ -21,6 +24,8 @@ th, td {
 	    <th><b>ISBN</b></th>
 	    <th><b>Authors</b></th>
 	    <th><b>Genres</b></th>
+	    <th><b>Rating</b></th>
+	    <th><b>Year</b></th>
 	  </tr>
 	  <tr>
 	  	<% @books.each do |book| %>
@@ -28,6 +33,8 @@ th, td {
 	  	  <td><%= book.isbn %></td>
           <td><%= book.authors.collect{ |author| author.name }.join(", ") %></td>
           <td><%= book.genres.collect { |genre| genre.name }.join(", ") %></td>
+          <td><%= book.rating %></td>
+          <td><%= book.year %></td> 	
 	  </tr>
 	<% end %>
 </table>

@@ -1,4 +1,5 @@
 require 'socket'
+require 'cgi'
 require './app/controllers/books_controller'
 
 def message_ok(response)(response)

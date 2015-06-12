@@ -3,24 +3,31 @@
 <head>
 <style>
 table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
+    border: 1px solid purple;
 }
 th, td {
     padding: 5px;
+}
+th {
+    height: 30px;
+    text-align: center;
+    background-color: purple;
+    color: white;
 }
 </style>
 </head>
 
 <body>
 
-<h4>Books in the library:</h4>
+<h3><i>Books in the library:</i></h3>
 <table>
 	  <tr> 
 	  	<th><b>Title</b></th>
 	    <th><b>ISBN</b></th>
 	    <th><b>Authors</b></th>
 	    <th><b>Genres</b></th>
+	    <th><b>Rating</b></th>
+	    <th><b>Year</b></th> 
 	  </tr>
 	  <tr>
 	  	<% @books.each do |book| %>
@@ -28,6 +35,8 @@ th, td {
 	  	  <td><%= book.isbn %></td>
           <td><%= book.authors.collect{ |author| author.name }.join(", ") %></td>
           <td><%= book.genres.collect { |genre| genre.name }.join(", ") %></td>
+          <td><%= book.rating %></td>
+          <td><%= book.year %></td>
 	  </tr>
 	<% end %>
 </table>
